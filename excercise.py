@@ -3,16 +3,22 @@
 a = 100
 b = a
 print("Before:", a, b, id(a), id(b))
+# Variables a and b start with the same ID since they equate to the same value.
 
 a += 1
 print("After a += 1:", a, b, id(a), id(b))
+# After adding 1 to a, a will have a different ID since integers are immutable,
+# but b will stay the same ID since nothing tried to modify it.
 
 x = [1, 2, 3]
 y = x
 print("Before:", x, y, id(x), id(y))
+# Variables x and y will also start with the same ID since they are set to the same list.
 
 x.append(4)
 print("After x.append(4):", x, y, id(x), id(y))
+# After appending 4 to list x, both list x and y will still be the same ID since lists are
+# mutable.
 
 # ===
 
@@ -23,17 +29,22 @@ names = ["alice", "bob", "charlie", "dana"]
 upper_names = []
 for n in names:
     # TODO: append uppercase n
-    pass
+    upper_names.append(n.upper())
+
+print(upper_names)
 
 # Task B: enumerate over upper_names
-# for :
+for i, n in enumerate(upper_names):
     # TODO: print index and name
-#    pass
+    print(f"Index: {i}, Name: {n}")
 
 # Task C: demo two list methods
 # 1. insert
-# TODO
+upper_names.insert(1, "Jonathan")
+print(upper_names)
 # 2. remove
-# TODO
+upper_names.remove("BOB")
+print(upper_names)
 # 3. sort
-# TODO
+upper_names.sort()
+print(upper_names)
